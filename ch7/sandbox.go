@@ -39,14 +39,18 @@ type Video interface {
 
 func main() {
 	var w io.Writer
+	fmt.Printf("%T", w)
+	fmt.Println(w == nil)
 	w = os.Stdout
+	w.Write([]byte("hello"))
+	fmt.Printf("%T", w)
 	w = new(bytes.Buffer)
-	var rwc io.ReadWriteCloser
-	rwc = os.Stdout
-	w = rwc
-	var s IntSet
-	var _ fmt.Stringer = &s
-	var any interface{}
-	any = true
-	any = 1234
+	fmt.Printf("%T", w)
+	var buf *bytes.Buffer
+	f(buf)
+	w = nil
+	f(w)
+}
+func f(out io.Writer) {
+	fmt.Println(out != nil)
 }
