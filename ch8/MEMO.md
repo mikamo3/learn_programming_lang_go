@@ -31,3 +31,6 @@ ch=make(chan int,0)
 
 送信、受信しているゴルーチンは同期される。
 
+# time.Tick time.NewTicker
+
+time.Tickはアプリケーションの生存期間の全体で必要な場合で使うべき
