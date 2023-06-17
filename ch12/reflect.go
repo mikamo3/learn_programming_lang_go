@@ -6,14 +6,13 @@ import (
 )
 
 func main() {
-	v := reflect.ValueOf(3)
-	fmt.Println(v)
-	fmt.Printf("%v\n", v)
-	fmt.Println(v.String())
-	t := v.Type()
-	fmt.Println(t.String())
-
-	x := v.Interface()
-	i := x.(int)
-	fmt.Printf("%d\n", i)
+	x := 2
+	a := reflect.ValueOf(2)
+	b := reflect.ValueOf(x)
+	c := reflect.ValueOf(&x)
+	d := c.Elem()
+	fmt.Println(a.CanAddr())
+	fmt.Println(b.CanAddr())
+	fmt.Println(c.CanAddr())
+	fmt.Println(d.CanAddr())
 }
